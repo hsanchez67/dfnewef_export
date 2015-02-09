@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="baseDataSourceBean" abstract="true"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>org.gjt.mm.mysql.Driver</value>
+		</property>
+		<property name="username">
+			<value>d3</value>
+		</property>
+		<property name="password">
+			<value>ondemand</value>
+		</property>
+		<property name="validationQuery">
+			<value>SELECT 1</value>
+		</property>
+		<property name="testWhileIdle">
+			<value>true</value>
+		</property>
+		<property name="testOnBorrow">
+			<value>true</value>
+		</property>
+		<property name="removeAbandoned">
+			<value>true</value>
+		</property>
+	</bean>	
+	<bean id="jndi" class="org.apache.xbean.spring.jndi.DefaultContext">
+		<property name="entries">
+			<map>
+				<entry key="network.query.key.0">
+					<bean class="java.lang.String">
+						<constructor-arg value="" />
+					</bean>
+				</entry>
+				<entry key="network.query.key.1">
+					<bean class="java.lang.String">
+						<constructor-arg value="d5fa10d545c5708687ebcc4594d1db5e" />
+					</bean>
+				</entry>
+				<entry key="tracking.service.url">
+					<bean class="java.lang.String">
+						<constructor-arg
+							value="http://dfwidgettracking/fasttrack/api/v2/aggregations/list" />
+					</bean>
+				</entry>
+				<entry key="jdbc/local">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+							<value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+
+				<entry key="jdbc/login">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/cluster">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/cellCache">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/vcd">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/openMarket">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/network">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="jdbc/sms">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb7.dfengg.com:3306/cluster</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="devng6">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb12.dfengg.com:3306/ng6</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="devng30">
+					<bean class="org.apache.commons.dbcp.BasicDataSource" parent="baseDataSourceBean">
+						<property name="url">
+                            <value>jdbc:mysql://devdb12.dfengg.com:3306/ng30</value>
+						</property>
+					</bean>
+				</entry>				
+                <entry key="profile.url">
+                    <bean class="java.lang.String">
+                        <constructor-arg value="http://staging.8-network.com" />
+                    </bean>
+                </entry>
+                <entry key="profile_old.url">
+                    <bean class="java.lang.String">
+                        <constructor-arg value="http://172.16.1.101" />
+                    </bean>
+                </entry>
+                <entry key="d3.url">
+                    <bean class="java.lang.String">
+                        <constructor-arg value="https://172.16.1.101" />
+                    </bean>
+                </entry>
+                <entry key="website.url">
+                    <bean class="java.lang.String">
+                        <constructor-arg value="http://website.dfengg.com" />
+                    </bean>
+                </entry>
+				<entry key="client.bluebox.url">
+					<bean class="java.lang.String">
+						<constructor-arg value="localhost" />
+					</bean>
+				</entry>
+				<entry key="client.bluebox.port">
+					<bean class="java.lang.String">
+						<constructor-arg value="8080" />
+					</bean>
+				</entry>
+				<entry key="client.bluebox.scheme">
+					<bean class="java.lang.String">
+						<constructor-arg value="http" />
+					</bean>
+				</entry>
+				<entry key="client.bluebox.user">
+					<bean class="java.lang.String">
+						<constructor-arg value="client1" />
+					</bean>
+				</entry>
+				<entry key="client.bluebox.pass">
+					<bean class="java.lang.String">
+						<constructor-arg value="pass1" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>
